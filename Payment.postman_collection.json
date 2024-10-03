@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "0773c0e7-0198-4ede-a978-e3a3a3742832",
+		"name": "Payment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16360112",
+		"_collection_link": "https://redtech-team-ly.postman.co/workspace/RedTech~1bcf5ee6-8eb4-415e-ad00-d21f8431c88d/collection/16360112-0773c0e7-0198-4ede-a978-e3a3a3742832?action=share&source=collection_link&creator=16360112"
+	},
+	"item": [
+		{
+			"name": "Initiate",
+			"item": [
+				{
+					"name": "sadadapi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payment_method\": \"sadadapi\",\r\n  \"mobile_number\": \"0913632323\",\r\n  \"birth_year\":\"1975\",\r\n  \"amount\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/payment/initiate",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"payment",
+								"initiate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edfali",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payment_method\": \"edfali\",\r\n  \"mobile_number\": \"0913632323\",\r\n  \"amount\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/payment/initiate",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"payment",
+								"initiate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Confrim",
+			"item": [
+				{
+					"name": "sadadapi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payment_method\": \"sadadapi\",\r\n    \"process_id\":\"1727983090014\",\r\n    \"code\":111111,\r\n    \"amount\":\"1\",\r\n    \"invoice_no\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/payment/confirm",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"payment",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edfali",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payment_method\": \"edfali\",\r\n    \"process_id\":\"1727983306741\",\r\n    \"code\": 1111,\r\n    \"amount\":30,\r\n    \"invoice_no\":\"12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/payment/confirm",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"payment",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localbankcards",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payment_method\": \"localbankcards\",\r\n  \"return_url\":\"{{URL}}/payment/return\",\r\n  \"amount\": 10,\r\n  \"invoice_no\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/payment/confirm",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"payment",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tlync",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payment_method\": \"tlync\",\r\n  \"mobile_number\": \"0910441322\",\r\n  \"return_url\":\"{{URL}}/payment/return\",\r\n  \"callback_url\":\"https://webhook.site/0c38dc2d-3e7d-42c9-ab07-69c9208f9040\",\r\n  \"amount\": 10,\r\n  \"invoice_no\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/payment/confirm",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"payment",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Validate",
+			"item": [
+				{
+					"name": "Webhook (tlync)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gateway\": \"tlync\",\r\n    \"approved\": 1,\r\n    \"amount\": 10,\r\n    \"invoice_no\": \"123\",\r\n    \"payment_method\": \"moamalat\",\r\n    \"transaction_id\": 130174,\r\n    \"hashed\": \"7CDC46027267710D6B94E14A46101D6792D6904CEBB2361860FDBBBD2B76B477\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/payment/webhook",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"payment",
+								"webhook"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return (mpgs|tlync|localbankcards)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/payment/return?gateway=localbankcards&approved=1&invoice_no=123&amount=1&transaction_id=130171&hashed=67961448EB9B79A08B4020BCADA75E121D939BB369242262781E057B72C6EF69",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"payment",
+								"return"
+							],
+							"query": [
+								{
+									"key": "gateway",
+									"value": "localbankcards"
+								},
+								{
+									"key": "approved",
+									"value": "1"
+								},
+								{
+									"key": "invoice_no",
+									"value": "123"
+								},
+								{
+									"key": "amount",
+									"value": "1"
+								},
+								{
+									"key": "transaction_id",
+									"value": "130171"
+								},
+								{
+									"key": "hashed",
+									"value": "67961448EB9B79A08B4020BCADA75E121D939BB369242262781E057B72C6EF69"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
